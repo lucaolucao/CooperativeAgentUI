@@ -1,0 +1,1052 @@
+/* =========================================================
+   Global
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  background: #f4f6f8;
+  color: #252b35;
+}
+
+
+/* =========================================================
+   App Container
+========================================================= */
+
+.app {
+  width: min(1420px, calc(100vw - 56px));
+
+  margin: 0 auto;
+
+  padding: 30px 0 28px;
+}
+
+
+/* =========================================================
+   Header
+========================================================= */
+
+.header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+
+.header-left {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.scenario-label {
+  margin-bottom: 5px;
+
+  color: #5368d8;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+
+.header h1 {
+  margin: 0;
+
+  color: #252b35;
+
+  font-size: 32px;
+
+  font-weight: 750;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.025em;
+}
+
+
+.header p {
+  margin: 7px 0 0;
+
+  color: #7c8490;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   Header Right
+========================================================= */
+
+.header-right {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 12px;
+}
+
+
+.user-section {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.user-caption {
+  color: #9299a4;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+
+.user-input {
+  width: 120px;
+
+  height: 38px;
+
+  padding: 0 11px;
+
+  border: 1px solid #dce1e7;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #303743;
+
+  font-size: 12px;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.user-input:focus {
+  border-color: #5368d8;
+
+  box-shadow:
+    0 0 0 3px rgba(83, 104, 216, 0.10);
+}
+
+
+/* =========================================================
+   Progress Card
+========================================================= */
+
+.progress-card {
+  width: 82px;
+
+  height: 58px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #dfe3e8;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 7px rgba(30, 40, 55, 0.035);
+}
+
+
+.progress-number {
+  color: #5368d8;
+
+  font-size: 18px;
+
+  font-weight: 750;
+
+  line-height: 1;
+}
+
+
+.progress-number span {
+  color: #a0a6af;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.progress-label {
+  margin-top: 5px;
+
+  color: #9ba2ac;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   Main Sections
+========================================================= */
+
+.ranking-section,
+.available-section {
+  border: 1px solid #dfe3e8;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 3px 14px rgba(30, 40, 55, 0.035);
+}
+
+
+.ranking-section {
+  padding: 20px;
+}
+
+
+.available-section {
+  margin-top: 16px;
+
+  padding: 18px 20px;
+}
+
+
+/* =========================================================
+   Section Header
+========================================================= */
+
+.section-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+
+.section-header h2 {
+  margin: 0;
+
+  color: #303742;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+.section-header p {
+  margin: 4px 0 0;
+
+  color: #9aa1ab;
+
+  font-size: 10px;
+
+  line-height: 1.3;
+}
+
+
+.ranking-status,
+.available-status {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #f4f6f8;
+
+  color: #747d89;
+
+  font-size: 9px;
+
+  font-weight: 650;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   Ranking Grid
+========================================================= */
+
+.ranking-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   Ranking Slot
+========================================================= */
+
+.ranking-slot {
+  position: relative;
+
+  height: 172px;
+
+  overflow: hidden;
+
+  border: 1.5px dashed #d5dbe3;
+
+  border-radius: 13px;
+
+  background: #fafbfc;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+.ranking-slot:hover {
+  border-color: #c3cad4;
+}
+
+
+.ranking-slot-over {
+  border-color: #5368d8;
+
+  background: #eef2ff;
+
+  transform: scale(1.015);
+}
+
+
+/* =========================================================
+   Empty Ranking Slot
+========================================================= */
+
+.empty-slot {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.empty-rank {
+  position: absolute;
+
+  top: 9px;
+
+  left: 10px;
+
+  color: #9ba3ae;
+
+  font-size: 10px;
+
+  font-weight: 750;
+}
+
+
+.plus-icon {
+  width: 30px;
+
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 7px;
+
+  border: 1px solid #d9dfe6;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #aeb5be;
+
+  font-size: 18px;
+
+  font-weight: 300;
+}
+
+
+.drop-label {
+  color: #a1a8b2;
+
+  font-size: 9px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   Ranking Card
+========================================================= */
+
+.ranking-card {
+  position: absolute;
+
+  inset: 4px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  cursor: grab;
+
+  user-select: none;
+
+  box-shadow:
+    0 2px 8px rgba(30, 40, 55, 0.055);
+
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+.ranking-card:hover {
+  box-shadow:
+    0 6px 16px rgba(30, 40, 55, 0.10);
+}
+
+
+.ranking-card:active {
+  cursor: grabbing;
+}
+
+
+.ranking-card-dragging {
+  opacity: 0.28;
+}
+
+
+/* =========================================================
+   Rank Number
+========================================================= */
+
+.rank-badge {
+  position: absolute;
+
+  top: 8px;
+
+  left: 9px;
+
+  z-index: 2;
+
+  color: #5368d8;
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================================================
+   Ranking Image
+========================================================= */
+
+.ranking-image {
+  width: 108px;
+
+  height: 108px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 5px;
+}
+
+
+.ranking-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+}
+
+
+/* =========================================================
+   Ranking Item Name
+========================================================= */
+
+.ranking-name {
+  width: 92%;
+
+  min-height: 15px;
+
+  color: #303742;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  line-height: 1.2;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Available Items Container
+========================================================= */
+
+.inventory-container {
+  min-height: 112px;
+
+  padding: 11px;
+
+  border: 1.5px solid transparent;
+
+  border-radius: 12px;
+
+  background: #f7f8fa;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.inventory-container-over {
+  border-color: #5368d8;
+
+  background: #eef2ff;
+}
+
+
+/* =========================================================
+   Available Items Grid
+========================================================= */
+
+.inventory-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(10, minmax(72px, 1fr));
+
+  gap: 9px;
+}
+
+
+/* =========================================================
+   Available Item Card
+========================================================= */
+
+.inventory-item {
+  min-height: 100px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 6px;
+
+  border: 1px solid #e0e4e9;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  cursor: grab;
+
+  user-select: none;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.inventory-item:hover {
+  border-color: #cbd1d9;
+
+  box-shadow:
+    0 4px 12px rgba(30, 40, 55, 0.08);
+
+  transform: translateY(-2px);
+}
+
+
+.inventory-item:active {
+  cursor: grabbing;
+}
+
+
+.inventory-item-dragging {
+  opacity: 0.3;
+}
+
+
+/* =========================================================
+   Available Item Image
+========================================================= */
+
+.inventory-image {
+  width: 62px;
+
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 4px;
+}
+
+
+.inventory-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+}
+
+
+/* =========================================================
+   Available Item Name
+========================================================= */
+
+.inventory-item-name {
+  width: 95%;
+
+  color: #5a626e;
+
+  font-size: 8.5px;
+
+  font-weight: 600;
+
+  line-height: 1.15;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Image Fallback
+========================================================= */
+
+.image-fallback {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  height: 100%;
+
+  font-size: 34px;
+}
+
+
+/* =========================================================
+   All Ranked
+========================================================= */
+
+.all-ranked {
+  min-height: 88px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  color: #3f9869;
+
+  font-size: 11px;
+
+  font-weight: 650;
+}
+
+
+.complete-icon {
+  width: 25px;
+
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e9f6ef;
+
+  color: #3f9869;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+.footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 15px;
+}
+
+
+.footer-hint {
+  color: #9ba2ac;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Buttons
+========================================================= */
+
+.actions {
+  display: flex;
+
+  gap: 8px;
+}
+
+
+.button {
+  height: 36px;
+
+  padding: 0 14px;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+
+.button-secondary {
+  border: 1px solid #dce1e6;
+
+  background: #ffffff;
+
+  color: #626a75;
+}
+
+
+.button-secondary:hover {
+  box-shadow:
+    0 4px 10px rgba(30, 40, 55, 0.06);
+}
+
+
+.button-primary {
+  border: 1px solid #5368d8;
+
+  background: #5368d8;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 4px 10px rgba(83, 104, 216, 0.18);
+}
+
+
+.button-primary:hover {
+  box-shadow:
+    0 6px 15px rgba(83, 104, 216, 0.26);
+}
+
+
+/* =========================================================
+   Drag Preview
+========================================================= */
+
+.drag-preview {
+  width: 150px;
+
+  min-height: 145px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 15px 35px rgba(20, 28, 40, 0.18);
+
+  pointer-events: none;
+}
+
+
+.drag-preview-image {
+  width: 95px;
+
+  height: 95px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 6px;
+}
+
+
+.drag-preview-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+.drag-preview-name {
+  width: 100%;
+
+  color: #303742;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  line-height: 1.2;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .app {
+    width: calc(100vw - 32px);
+  }
+
+  .inventory-grid {
+    grid-template-columns:
+      repeat(8, minmax(72px, 1fr));
+  }
+
+  .ranking-image {
+    width: 96px;
+
+    height: 96px;
+  }
+
+  .ranking-slot {
+    height: 160px;
+  }
+}
+
+
+/* =========================================================
+   Small Tablet
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .header {
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  .header-right {
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+
+  .ranking-grid {
+    grid-template-columns:
+      repeat(3, minmax(100px, 1fr));
+  }
+
+  .inventory-grid {
+    grid-template-columns:
+      repeat(5, minmax(72px, 1fr));
+  }
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .app {
+    width: calc(100vw - 20px);
+
+    padding-top: 20px;
+  }
+
+  .header h1 {
+    font-size: 27px;
+  }
+
+  .ranking-section,
+  .available-section {
+    padding: 14px;
+  }
+
+  .ranking-grid {
+    grid-template-columns:
+      repeat(2, minmax(110px, 1fr));
+  }
+
+  .ranking-slot {
+    height: 155px;
+  }
+
+  .ranking-image {
+    width: 90px;
+
+    height: 90px;
+  }
+
+  .inventory-grid {
+    grid-template-columns:
+      repeat(3, minmax(72px, 1fr));
+  }
+
+  .footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+}
