@@ -20,91 +20,91 @@ const ITEMS = [
   {
     id: "oxygen_tanks",
     name: "Oxygen Tanks",
-    image: "/items/oxygen_tanks.png",
+    image: "/items/outerspace/oxygen_tanks.png",
     emoji: "🫧",
   },
   {
     id: "solar_radio",
     name: "Solar Radio",
-    image: "/items/solar_radio.png",
+    image: "/items/outerspace/solar_radio.png",
     emoji: "📻",
   },
   {
     id: "parachute_fabric",
     name: "Parachute Fabric",
-    image: "/items/parachute_fabric.png",
+    image: "/items/outerspace/parachute_fabric.png",
     emoji: "🪂",
   },
   {
     id: "powdered_milk",
     name: "Powdered Milk",
-    image: "/items/powdered_milk.png",
+    image: "/items/outerspace/powdered_milk.png",
     emoji: "🥛",
   },
   {
     id: "matches",
     name: "Matches",
-    image: "/items/matches.png",
+    image: "/items/outerspace/matches.png",
     emoji: "🔥",
   },
   {
     id: "emergency_food",
     name: "Emergency Food",
-    image: "/items/emergency_food.png",
+    image: "/items/outerspace/emergency_food.png",
     emoji: "🍱",
   },
   {
     id: "portable_heater",
     name: "Portable Heater",
-    image: "/items/portable_heater.png",
+    image: "/items/outerspace/portable_heater.png",
     emoji: "♨️",
   },
   {
     id: "life_raft",
     name: "Life Raft",
-    image: "/items/life_raft.png",
+    image: "/items/outerspace/life_raft.png",
     emoji: "🛟",
   },
   {
     id: "nylon_rope",
     name: "Nylon Rope (50ft.)",
-    image: "/items/nylon_rope.png",
+    image: "/items/outerspace/nylon_rope.png",
     emoji: "🪢",
   },
   {
     id: "two_pistols",
     name: "Two Pistols",
-    image: "/items/two_pistols.png",
+    image: "/items/outerspace/two_pistols.png",
     emoji: "🔫",
   },
   {
     id: "star_map",
     name: "Star Map",
-    image: "/items/star_map.png",
+    image: "/items/outerspace/star_map.png",
     emoji: "🌌",
   },
   {
     id: "compass",
     name: "Compass",
-    image: "/items/compass.png",
+    image: "/items/outerspace/compass.png",
     emoji: "🧭",
   },
   {
     id: "water",
     name: "Water (20L)",
-    image: "/items/water.png",
+    image: "/items/outerspace/water.png",
     emoji: "💧",
   },
   {
     id: "flares",
     name: "Flares",
-    image: "/items/flares.png",
+    image: "/items/outerspace/flares.png",
     emoji: "🚨",
   },
   {
     id: "first_aid_kit",
     name: "First Aid Kit",
-    image: "/items/first_aid_kit.png",
+    image: "/items/outerspace/first_aid_kit.png",
     emoji: "🩹",
   },
 ];
@@ -125,14 +125,14 @@ const INITIAL_RANKING = [
   "oxygen_tanks",
   null,
   null,
-  null,
+  "emergency_food",
   "solar_radio",
   null,
   null,
   "parachute_fabric",
   null,
   null,
-  null,
+  "two_pistols",
   "powdered_milk",
   null,
   null,
@@ -725,6 +725,26 @@ function App() {
     activeItemId
       ? getItem(activeItemId)
       : null;
+  
+
+  const sessions = [
+    {
+      title: "Session 1",
+      ranks: [1, 2, 3, 4],
+    },
+    {
+      title: "Session 2",
+      ranks: [5, 6, 7],
+    },
+    {
+      title: "Session 3",
+      ranks: [8, 9, 10, 11],
+    },
+    {
+      title: "Session 4",
+      ranks: [12, 13, 14, 15],
+    },
+  ];
 
 
   /* =======================================================
@@ -852,7 +872,7 @@ function App() {
           </div>
 
 
-          <div className="ranking-grid">
+          {/* <div className="ranking-grid">
 
             {ranking.map(
               (itemId, index) => {
@@ -877,6 +897,54 @@ function App() {
                 );
               }
             )}
+
+          </div> */}
+          <div className="session-container">
+
+            {sessions.map((session) => (
+
+              <div
+                key={session.title}
+                className="session-column"
+              >
+
+                <h3 className="session-title">
+                  {session.title}
+                </h3>
+
+                {session.ranks.map((rank) => {
+
+                  const itemId = ranking[rank - 1];
+
+                  const item = itemId
+                    ? getItem(itemId)
+                    : null;
+
+                  return (
+
+                    <div
+                      key={rank}
+                      className="session-slot"
+                    >
+
+                      <div className="slot-title">
+                        Rank {rank}
+                      </div>
+
+                      <RankingSlot
+                        rank={rank}
+                        item={item}
+                      />
+
+                    </div>
+
+                  );
+
+                })}
+
+              </div>
+
+            ))}
 
           </div>
 

@@ -325,13 +325,65 @@ body {
    Ranking Grid
 ========================================================= */
 
-.ranking-grid {
+/* .ranking-grid {
   display: grid;
 
   grid-template-columns:
     repeat(5, minmax(0, 1fr));
 
   gap: 10px;
+} */
+
+.session-container{
+
+    display:flex;
+
+    gap:24px;
+
+    margin-top:20px;
+
+    align-items:flex-start;
+
+}
+
+.session-column{
+
+    flex:1;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:16px;
+
+}
+
+.session-title{
+
+    text-align:center;
+
+    margin-bottom:16px;
+
+    font-size:22px;
+
+}
+
+.session-slot{
+
+    margin-bottom:18px;
+
+}
+
+.slot-title{
+
+    text-align:center;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
 }
 
 
@@ -340,24 +392,27 @@ body {
 ========================================================= */
 
 .ranking-slot {
+
   position: relative;
 
-  height: 172px;
+  width: 100%;
+
+  min-height: 180px;
 
   overflow: hidden;
 
-  border: 1.5px dashed #d5dbe3;
+  border: 2px dashed #d7dce3;
 
-  border-radius: 13px;
+  border-radius: 12px;
 
-  background: #fafbfc;
+  background: #fafafa;
 
   transition:
     background 0.15s ease,
     border-color 0.15s ease,
     transform 0.15s ease;
-}
 
+}
 
 .ranking-slot:hover {
   border-color: #c3cad4;
@@ -783,6 +838,59 @@ body {
 }
 
 
+.session-container{
+
+    display:flex;
+
+    gap:24px;
+
+    margin-top:20px;
+
+    align-items:flex-start;
+
+}
+
+.session-column{
+
+    flex:1;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:16px;
+
+}
+
+.session-title{
+
+    text-align:center;
+
+    margin-bottom:16px;
+
+    font-size:22px;
+
+}
+
+.session-slot{
+
+    margin-bottom:18px;
+
+}
+
+.slot-title{
+
+    text-align:center;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+
 /* =========================================================
    Footer
 ========================================================= */
@@ -968,6 +1076,7 @@ body {
   .ranking-slot {
     height: 160px;
   }
+  
 }
 
 
