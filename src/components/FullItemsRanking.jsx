@@ -121,24 +121,7 @@ const ITEMS = [
    Top 15 = Matches
 */
 
-const INITIAL_RANKING = [
-  "oxygen_tanks",
-  null,
-  null,
-  "emergency_food",
-  "solar_radio",
-  null,
-  null,
-  "parachute_fabric",
-  null,
-  null,
-  "two_pistols",
-  "powdered_milk",
-  null,
-  null,
-  "matches",
-];
-
+const INITIAL_RANKING = new Array(ITEMS.length).fill(null);
 
 /* =========================================================
    Helper
@@ -725,26 +708,6 @@ function App() {
     activeItemId
       ? getItem(activeItemId)
       : null;
-  
-
-  const sessions = [
-    {
-      title: "Session 1",
-      ranks: [1, 2, 3, 4],
-    },
-    {
-      title: "Session 2",
-      ranks: [5, 6, 7],
-    },
-    {
-      title: "Session 3",
-      ranks: [8, 9, 10, 11],
-    },
-    {
-      title: "Session 4",
-      ranks: [12, 13, 14, 15],
-    },
-  ];
 
 
   /* =======================================================
@@ -872,7 +835,7 @@ function App() {
           </div>
 
 
-          {/* <div className="ranking-grid">
+          <div className="ranking-grid">
 
             {ranking.map(
               (itemId, index) => {
@@ -897,54 +860,6 @@ function App() {
                 );
               }
             )}
-
-          </div> */}
-          <div className="session-container">
-
-            {sessions.map((session) => (
-
-              <div
-                key={session.title}
-                className="session-column"
-              >
-
-                <h3 className="session-title">
-                  {session.title}
-                </h3>
-
-                {session.ranks.map((rank) => {
-
-                  const itemId = ranking[rank - 1];
-
-                  const item = itemId
-                    ? getItem(itemId)
-                    : null;
-
-                  return (
-
-                    <div
-                      key={rank}
-                      className="session-slot"
-                    >
-
-                      <div className="slot-title">
-                        Rank {rank}
-                      </div>
-
-                      <RankingSlot
-                        rank={rank}
-                        item={item}
-                      />
-
-                    </div>
-
-                  );
-
-                })}
-
-              </div>
-
-            ))}
 
           </div>
 
