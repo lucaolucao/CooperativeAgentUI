@@ -97,7 +97,26 @@ const moon = {
         image: "/items/moon/first_aid_kit.png",
         emoji: "🩹",
       },
-    ]
+    ],
+
+    initialRanking: [
+        "oxygen_tanks",
+        null,
+        null,
+        "emergency_food",
+        "solar_radio",
+        null,
+        null,
+        "parachute_fabric",
+        null,
+        null,
+        "two_pistols",
+        "powdered_milk",
+        null,
+        null,
+        "matches",
+    ],
+
 }
 
 export default moon;

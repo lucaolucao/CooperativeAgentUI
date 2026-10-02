@@ -6,72 +6,18 @@ const desert = {
 
     items: [
       {
-        id: "oxygen_tanks",
-        name: "Oxygen Tanks",
+        id: "book",
+        name: "Book",
         //image: "/items/outerspace/oxygen_tanks.png",
-        image: "/items/desert/oxygen_tanks.png",
+        image: "/items/desert/book.png",
 
         emoji: "🫧",
       },
       {
-        id: "solar_radio",
-        name: "Solar Radio",
-        image: "/items/desert/solar_radio.png",
+        id: "coat",
+        name: "Coat",
+        image: "/items/desert/coat.png",
         emoji: "📻",
-      },
-      {
-        id: "parachute_fabric",
-        name: "Parachute Fabric",
-        image: "/items/desert/parachute_fabric.png",
-        emoji: "🪂",
-      },
-      {
-        id: "powdered_milk",
-        name: "Powdered Milk",
-        image: "/items/desert/powdered_milk.png",
-        emoji: "🥛",
-      },
-      {
-        id: "matches",
-        name: "Matches",
-        image: "/items/desert/matches.png",
-        emoji: "🔥",
-      },
-      {
-        id: "emergency_food",
-        name: "Emergency Food",
-        image: "/items/desert/emergency_food.png",
-        emoji: "🍱",
-      },
-      {
-        id: "portable_heater",
-        name: "Portable Heater",
-        image: "/items/desert/portable_heater.png",
-        emoji: "♨️",
-      },
-      {
-        id: "life_raft",
-        name: "Life Raft",
-        image: "/items/desert/life_raft.png",
-        emoji: "🛟",
-      },
-      {
-        id: "nylon_rope",
-        name: "Nylon Rope (50ft.)",
-        image: "/items/desert/nylon_rope.png",
-        emoji: "🪢",
-      },
-      {
-        id: "two_pistols",
-        name: "Two Pistols",
-        image: "/items/desert/two_pistols.png",
-        emoji: "🔫",
-      },
-      {
-        id: "star_map",
-        name: "Star Map",
-        image: "/items/desert/star_map.png",
-        emoji: "🌌",
       },
       {
         id: "compass",
@@ -80,24 +26,96 @@ const desert = {
         emoji: "🧭",
       },
       {
-        id: "water",
-        name: "Water (20L)",
-        image: "/items/desert/water.png",
-        emoji: "💧",
-      },
-      {
-        id: "flares",
-        name: "Flares",
-        image: "/items/desert/flares.png",
-        emoji: "🚨",
-      },
-      {
         id: "first_aid_kit",
         name: "First Aid Kit",
         image: "/items/desert/first_aid_kit.png",
+        emoji: "🥛",
+      },
+      {
+        id: "flashlight",
+        name: "Flashlight",
+        image: "/items/desert/flashlight.png",
+        emoji: "🔥",
+      },
+      {
+        id: "hand_mirror",
+        name: "Hand Mirror",
+        image: "/items/desert/hand_mirror.png",
+        emoji: "🍱",
+      },
+      {
+        id: "map",
+        name: "Map",
+        image: "/items/desert/map.png",
+        emoji: "♨️",
+      },
+      {
+        id: "matches",
+        name: "Matches",
+        image: "/items/desert/matches.png",
+        emoji: "🛟",
+      },
+      {
+        id: "parachute",
+        name: "Parachute",
+        image: "/items/desert/parachute.png",
+        emoji: "🪂",
+      },
+      {
+        id: "pistol",
+        name: "Pistol",
+        image: "/items/desert/pistol.png",
+        emoji: "🔫",
+      },
+      {
+        id: "pocket_knife",
+        name: "Pocket Knife",
+        image: "/items/desert/pocket_knife.png",
+        emoji: "🌌",
+      },
+      {
+        id: "raincoat",
+        name: "Raincoat",
+        image: "/items/desert/raincoat.png",
+        emoji: "🧭",
+      },
+      {
+        id: "salt_tablets",
+        name: "Salt Tablets",
+        image: "/items/desert/salt_tablets.png",
+        emoji: "💧",
+      },
+      {
+        id: "sunglasses",
+        name: "Sunglasses",
+        image: "/items/desert/sunglasses.png",
+        emoji: "🚨",
+      },
+      {
+        id: "vodka",
+        name: "Vodka Aid Kit",
+        image: "/items/desert/vodka.png",
         emoji: "🩹",
       },
-    ]
+    ],
+
+    initialRanking: [
+        "hand_mirror",
+        null,
+        null,
+        "flashlight",
+        "parachute",
+        null,
+        null,
+        "pistol",
+        null,
+        null,
+        "compass",
+        "map",
+        null,
+        null,
+        "salt_tablets",
+    ],
 }
 
 export default desert;

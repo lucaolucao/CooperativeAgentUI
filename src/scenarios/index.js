@@ -5,7 +5,7 @@ import desert from "./desert";
 
 export default {
     moon,
-    desert,
+    desert
     // ocean,
     // winter
 };

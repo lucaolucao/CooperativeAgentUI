@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+//import { useMemo, useState, useEffect } from "react";
 import {
   DndContext,
   DragOverlay,
@@ -125,23 +126,23 @@ import scenarios from "../scenarios";
    Top 15 = Matches
 */
 
-const INITIAL_RANKING = [
-  "oxygen_tanks",
-  null,
-  null,
-  "emergency_food",
-  "solar_radio",
-  null,
-  null,
-  "parachute_fabric",
-  null,
-  null,
-  "two_pistols",
-  "powdered_milk",
-  null,
-  null,
-  "matches",
-];
+// const INITIAL_RANKING = [
+//   "oxygen_tanks",
+//   null,
+//   null,
+//   "emergency_food",
+//   "solar_radio",
+//   null,
+//   null,
+//   "parachute_fabric",
+//   null,
+//   null,
+//   "two_pistols",
+//   "powdered_milk",
+//   null,
+//   null,
+//   "matches",
+// ];
 
 
 /* =========================================================
@@ -449,12 +450,14 @@ function App() {
         (scenarios[scenario] ?? scenarios.moon).items;
 
     const [ranking, setRanking] = useState(
-        INITIAL_RANKING
+        //INITIAL_RANKING
+        [...config.initialRanking]
     );
-
-    const [userId, setUserId] = useState(
-        "UserA"
-    );
+    // useEffect(() => {
+    //   setRanking([...config.initialRanking]);
+    // }, [scenario]);
+    
+    const [userId, setUserId] = useState("UserA");
 
     const [activeItemId, setActiveItemId] =
         useState(null);
@@ -681,7 +684,8 @@ function App() {
     }
 
     setRanking(
-      [...INITIAL_RANKING]
+      //[...INITIAL_RANKING]
+       [...config.initialRanking]
     );
   }
 
