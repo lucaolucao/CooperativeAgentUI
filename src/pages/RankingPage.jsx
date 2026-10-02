@@ -49,6 +49,7 @@ export default function RankingPage() {
 
     return (
         <PartialItemsRanking
+            key={scenario}
             scenario={scenario}
             title={config.title}
             description={config.description}

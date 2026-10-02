@@ -86,9 +86,9 @@ const desert = {
         emoji: "💧",
       },
       {
-        id: "sunglasses",
-        name: "Sunglasses",
-        image: "/items/desert/sunglasses.png",
+        id: "sunglass",
+        name: "Sunglass",
+        image: "/items/desert/sunglass.png",
         emoji: "🚨",
       },
       {
