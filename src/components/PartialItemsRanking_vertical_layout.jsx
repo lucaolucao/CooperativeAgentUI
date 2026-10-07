@@ -732,7 +732,7 @@ function App() {
             </div>
 
 
-          {/* <div className="header-right">
+          <div className="header-right">
 
             <div className="user-section">
 
@@ -751,10 +751,10 @@ function App() {
                 placeholder="User ID"
               />
 
-            </div> */}
+            </div>
 
 
-            {/* <div className="progress-card">
+            <div className="progress-card">
 
               <div className="progress-number">
                 {rankedCount}
@@ -769,7 +769,7 @@ function App() {
 
             </div>
 
-          </div> */}
+          </div>
 
         </header>
 
@@ -782,7 +782,7 @@ function App() {
 
           <div className="section-header">
 
-            <div className="section-header-left">
+            <div>
 
               <h2>
                 Your Ranking
@@ -794,100 +794,71 @@ function App() {
 
             </div>
 
-            <div className="section-header-right">
+{/* 
+            <div className="ranking-status">
 
-              <div className="user-section">
+              {rankedCount === 15
+                ? "Complete"
+                : `${15 - rankedCount} items remaining`
+              }
 
-                <div className="user-caption">
-                  PARTICIPANT
-                </div>
-
-                <input
-                  className="user-input"
-                  value={userId}
-                  onChange={(event) =>
-                    setUserId(event.target.value)
-                  }
-                  placeholder="User ID"
-                />
-
-              </div>
-
-              <div className="progress-card">
-
-                <div className="progress-number">
-                  {rankedCount}
-                  <span>
-                    / 15
-                  </span>
-                </div>
-
-                <div className="progress-label">
-                  ranked
-                </div>
-
-              </div>
-
-            </div>
+            </div> */}
 
           </div>
 
           <div className="session-container">
 
-  {sessions.map((session) => (
-
-      <div
-        key={session.title}
-        className="session-column"
-      >
-
-        <h3 className="session-title">
-          {session.title}
-        </h3>
-
-        <div className="session-rank-grid">
-
-          {session.ranks.map((rank) => {
-
-            const itemId = ranking[rank - 1];
-
-            const item = itemId
-              ? getItem(ITEMS, itemId)
-              : null;
-
-            return (
+            {sessions.map((session) => (
 
               <div
-                key={rank}
-                className="session-slot"
+                key={session.title}
+                className="session-column"
               >
 
-                <div className="slot-title">
-                  Rank {rank}
-                </div>
+                <h3 className="session-title">
+                  {session.title}
+                </h3>
 
-                <RankingSlot
-                  rank={rank}
-                  item={item}
-                  locked={FIXED_RANKS.has(rank)}
-                />
+                {session.ranks.map((rank) => {
+
+                  const itemId = ranking[rank - 1];
+
+                  const item = itemId
+                    ? getItem(ITEMS, itemId)
+                    : null;
+
+                  return (
+
+                    <div
+                      key={rank}
+                      className="session-slot"
+                    >
+
+                      <div className="slot-title">
+                        Rank {rank}
+                      </div>
+
+                      <RankingSlot
+                        rank={rank}
+                        item={item}
+                        locked={FIXED_RANKS.has(rank)}
+                      />
+
+                    </div>
+
+                  );
+
+                })}
 
               </div>
 
-            );
+            ))}
 
-          })}
+          </div>
 
-        </div>
+        </section>
 
-      </div>
 
-    ))}
-
-  </div>
-
-  </section>
-    
         {/* =================================================
             AVAILABLE ITEMS
         ================================================= */}

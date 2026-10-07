@@ -274,32 +274,16 @@ body {
    Section Header
 ========================================================= */
 
-.section-header{
+.section-header {
+  display: flex;
 
-    display:flex;
+  align-items: center;
 
-    justify-content:space-between;
+  justify-content: space-between;
 
-    align-items:flex-start;
-
-    margin-bottom:22px;
+  margin-bottom: 16px;
 }
 
-.section-header-left{
-
-    display:flex;
-
-    flex-direction:column;
-}
-
-.section-header-right{
-
-    display:flex;
-
-    align-items:flex-end;
-
-    gap:18px;
-}
 
 .section-header h2 {
   margin: 0;
@@ -363,18 +347,17 @@ body {
 
     display:flex;
 
-    flex-direction:column;
-
-    gap:28px;
+    gap:24px;
 
     margin-top:20px;
 
-    width:100%;
+    align-items:flex-start;
+
 }
 
 .session-column{
 
-    width:100%;
+    flex:1;
 
     background:#fff;
 
@@ -382,41 +365,24 @@ body {
 
     border-radius:12px;
 
-    padding:18px;
+    padding:16px;
+
 }
-
-.session-rank-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:18px;
-
-    width:100%;
-}
-
 
 .session-title{
 
-    text-align:left;
+    text-align:center;
 
-    margin-bottom:14px;
+    margin-bottom:16px;
 
     font-size:22px;
 
-    font-weight:700;
-
-    color:#2f4c9d;
 }
 
 .session-slot{
 
-    display:flex;
+    margin-bottom:18px;
 
-    flex-direction:column;
-
-    gap:8px;
 }
 
 .slot-title{

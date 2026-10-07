@@ -16,11 +16,147 @@ import { useParams } from "react-router-dom";
 import scenarios from "../scenarios";
 
 
+
+/* =========================================================
+   Item Data
+========================================================= */
+
+// const ITEMS = [
+//   {
+//     id: "oxygen_tanks",
+//     name: "Oxygen Tanks",
+//     image: "/items/outerspace/oxygen_tanks.png",
+//     emoji: "🫧",
+//   },
+//   {
+//     id: "solar_radio",
+//     name: "Solar Radio",
+//     image: "/items/outerspace/solar_radio.png",
+//     emoji: "📻",
+//   },
+//   {
+//     id: "parachute_fabric",
+//     name: "Parachute Fabric",
+//     image: "/items/outerspace/parachute_fabric.png",
+//     emoji: "🪂",
+//   },
+//   {
+//     id: "powdered_milk",
+//     name: "Powdered Milk",
+//     image: "/items/outerspace/powdered_milk.png",
+//     emoji: "🥛",
+//   },
+//   {
+//     id: "matches",
+//     name: "Matches",
+//     image: "/items/outerspace/matches.png",
+//     emoji: "🔥",
+//   },
+//   {
+//     id: "emergency_food",
+//     name: "Emergency Food",
+//     image: "/items/outerspace/emergency_food.png",
+//     emoji: "🍱",
+//   },
+//   {
+//     id: "portable_heater",
+//     name: "Portable Heater",
+//     image: "/items/outerspace/portable_heater.png",
+//     emoji: "♨️",
+//   },
+//   {
+//     id: "life_raft",
+//     name: "Life Raft",
+//     image: "/items/outerspace/life_raft.png",
+//     emoji: "🛟",
+//   },
+//   {
+//     id: "nylon_rope",
+//     name: "Nylon Rope (50ft.)",
+//     image: "/items/outerspace/nylon_rope.png",
+//     emoji: "🪢",
+//   },
+//   {
+//     id: "two_pistols",
+//     name: "Two Pistols",
+//     image: "/items/outerspace/two_pistols.png",
+//     emoji: "🔫",
+//   },
+//   {
+//     id: "star_map",
+//     name: "Star Map",
+//     image: "/items/outerspace/star_map.png",
+//     emoji: "🌌",
+//   },
+//   {
+//     id: "compass",
+//     name: "Compass",
+//     image: "/items/outerspace/compass.png",
+//     emoji: "🧭",
+//   },
+//   {
+//     id: "water",
+//     name: "Water (20L)",
+//     image: "/items/outerspace/water.png",
+//     emoji: "💧",
+//   },
+//   {
+//     id: "flares",
+//     name: "Flares",
+//     image: "/items/outerspace/flares.png",
+//     emoji: "🚨",
+//   },
+//   {
+//     id: "first_aid_kit",
+//     name: "First Aid Kit",
+//     image: "/items/outerspace/first_aid_kit.png",
+//     emoji: "🩹",
+//   },
+// ];
+
+
+/* =========================================================
+   Initial Ranking
+=========================================================
+
+   Top 1  = Oxygen Tanks
+   Top 5  = Solar Radio
+   Top 8  = Parachute Fabric
+   Top 12 = Powdered Milk
+   Top 15 = Matches
+*/
+
+// const INITIAL_RANKING = [
+//   "oxygen_tanks",
+//   null,
+//   null,
+//   "emergency_food",
+//   "solar_radio",
+//   null,
+//   null,
+//   "parachute_fabric",
+//   null,
+//   null,
+//   "two_pistols",
+//   "powdered_milk",
+//   null,
+//   null,
+//   "matches",
+// ];
+
+
+/* =========================================================
+   Helper
+========================================================= */
+
+// function getItem(itemId) {
+//   return ITEMS.find((item) => item.id === itemId);
+// }
+
 function getItem(items, itemId) {
   return items.find((item) => item.id === itemId);
 }
 
-const FIXED_RANKS = new Set([1, 4, 5, 8, 11, 12, 15]);
 
 /* =========================================================
    Item Image
@@ -40,7 +176,15 @@ function ItemImage({
     );
   }
 
-
+  // return (
+  //   <img
+  //     className={className}
+  //     src={item.image}
+  //     alt={item.name}
+  //     onError={() => setFailed(true)}
+  //     draggable="false"
+  //   />
+  // );
 
   return (
   <img
@@ -109,8 +253,7 @@ function InventoryItem({ item }) {
    Ranking Item
 ========================================================= */
 
-function RankingItem({ item, rank, locked = false }) {
-
+function RankingItem({ item, rank }) {
   const {
     attributes,
     listeners,
@@ -119,14 +262,10 @@ function RankingItem({ item, rank, locked = false }) {
     isDragging,
   } = useDraggable({
     id: `ranking-${item.id}`,
-
-    disabled: locked,
-
     data: {
       type: "ranking",
       itemId: item.id,
       rank,
-      locked,
     },
   });
 
@@ -137,28 +276,24 @@ function RankingItem({ item, rank, locked = false }) {
     : undefined;
 
   return (
-      <div
-        ref={setNodeRef}
-        style={style}
-        className={`ranking-card
-          ${locked ? "ranking-card-locked" : ""}
-          ${isDragging ? "ranking-card-dragging" : ""}
-        `}
-        {...listeners}
-        {...attributes}
-      >
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={`ranking-card ${
+        isDragging ? "ranking-card-dragging" : ""
+      }`}
+      {...listeners}
+      {...attributes}
+    >
       <div className="rank-badge">
         {String(rank).padStart(2, "0")}
       </div>
 
-      {locked && (
-        <div className="locked-icon">
-            🔒
-        </div>
-      )}
-
       <div className="ranking-image">
-        <ItemImage item={item} />
+        <ItemImage
+            item={item}
+            //scenario={scenario}
+        />
       </div>
 
       <div className="ranking-name">
@@ -168,20 +303,17 @@ function RankingItem({ item, rank, locked = false }) {
   );
 }
 
+
 /* =========================================================
    Ranking Slot
 ========================================================= */
 
-function RankingSlot({ rank, item, locked = false }) {
-    const { setNodeRef, isOver } = useDroppable({
+function RankingSlot({ rank, item }) {
+  const { setNodeRef, isOver } = useDroppable({
     id: `slot-${rank}`,
-
-    disabled: locked,
-
     data: {
       type: "slot",
       rank,
-      locked,
     },
   });
 
@@ -196,8 +328,6 @@ function RankingSlot({ rank, item, locked = false }) {
         <RankingItem
           item={item}
           rank={rank}
-          locked={locked}
-
         />
       ) : (
         <div className="empty-slot">
@@ -414,25 +544,6 @@ function App() {
       over.data.current;
 
     if (!activeData || !overData) {
-      return;
-    }
-    // =====================================================
-    // Protect fixed ranking positions
-    // =====================================================
-
-    // Fixed item cannot be moved out of its position
-    if (
-      activeData.type === "ranking" &&
-      FIXED_RANKS.has(activeData.rank)
-    ) {
-      return;
-    }
-
-    // Nothing can be dropped into a fixed position
-    if (
-      overData.type === "slot" &&
-      FIXED_RANKS.has(overData.rank)
-    ) {
       return;
     }
 
@@ -732,7 +843,7 @@ function App() {
             </div>
 
 
-          {/* <div className="header-right">
+          <div className="header-right">
 
             <div className="user-section">
 
@@ -751,10 +862,10 @@ function App() {
                 placeholder="User ID"
               />
 
-            </div> */}
+            </div>
 
 
-            {/* <div className="progress-card">
+            <div className="progress-card">
 
               <div className="progress-number">
                 {rankedCount}
@@ -769,7 +880,7 @@ function App() {
 
             </div>
 
-          </div> */}
+          </div>
 
         </header>
 
@@ -782,7 +893,7 @@ function App() {
 
           <div className="section-header">
 
-            <div className="section-header-left">
+            <div>
 
               <h2>
                 Your Ranking
@@ -794,100 +905,98 @@ function App() {
 
             </div>
 
-            <div className="section-header-right">
 
-              <div className="user-section">
+            <div className="ranking-status">
 
-                <div className="user-caption">
-                  PARTICIPANT
-                </div>
-
-                <input
-                  className="user-input"
-                  value={userId}
-                  onChange={(event) =>
-                    setUserId(event.target.value)
-                  }
-                  placeholder="User ID"
-                />
-
-              </div>
-
-              <div className="progress-card">
-
-                <div className="progress-number">
-                  {rankedCount}
-                  <span>
-                    / 15
-                  </span>
-                </div>
-
-                <div className="progress-label">
-                  ranked
-                </div>
-
-              </div>
+              {rankedCount === 15
+                ? "Complete"
+                : `${15 - rankedCount} items remaining`
+              }
 
             </div>
 
           </div>
 
+
+          {/* <div className="ranking-grid">
+
+            {ranking.map(
+              (itemId, index) => {
+
+                const item =
+                  itemId
+                    ? getItem(itemId)
+                    : null;
+
+                return (
+
+                  <RankingSlot
+
+                    key={index}
+
+                    rank={index + 1}
+
+                    item={item}
+
+                  />
+
+                );
+              }
+            )}
+
+          </div> */}
           <div className="session-container">
 
-  {sessions.map((session) => (
-
-      <div
-        key={session.title}
-        className="session-column"
-      >
-
-        <h3 className="session-title">
-          {session.title}
-        </h3>
-
-        <div className="session-rank-grid">
-
-          {session.ranks.map((rank) => {
-
-            const itemId = ranking[rank - 1];
-
-            const item = itemId
-              ? getItem(ITEMS, itemId)
-              : null;
-
-            return (
+            {sessions.map((session) => (
 
               <div
-                key={rank}
-                className="session-slot"
+                key={session.title}
+                className="session-column"
               >
 
-                <div className="slot-title">
-                  Rank {rank}
-                </div>
+                <h3 className="session-title">
+                  {session.title}
+                </h3>
 
-                <RankingSlot
-                  rank={rank}
-                  item={item}
-                  locked={FIXED_RANKS.has(rank)}
-                />
+                {session.ranks.map((rank) => {
+
+                  const itemId = ranking[rank - 1];
+
+                  const item = itemId
+                    ? getItem(ITEMS, itemId)
+                    : null;
+
+                  return (
+
+                    <div
+                      key={rank}
+                      className="session-slot"
+                    >
+
+                      <div className="slot-title">
+                        Rank {rank}
+                      </div>
+
+                      <RankingSlot
+                        rank={rank}
+                        item={item}
+                      />
+
+                    </div>
+
+                  );
+
+                })}
 
               </div>
 
-            );
+            ))}
 
-          })}
+          </div>
 
-        </div>
+        </section>
 
-      </div>
 
-    ))}
-
-  </div>
-
-  </section>
-    
         {/* =================================================
             AVAILABLE ITEMS
         ================================================= */}
@@ -909,11 +1018,13 @@ function App() {
             </div>
 
 
-           <div className="available-status">
-              {/* <span className="status-dot">●</span> */}
-              <span className="status-number">{availableItems.length}</span>
-              <span className="status-text">Items Remaining</span>
-          </div>
+            <div className="available-status">
+
+              {availableItems.length}
+              {" "}
+              remaining
+
+            </div>
 
           </div>
 
