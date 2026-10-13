@@ -7,7 +7,7 @@ const desert = {
     items: [
       {
         id: "book",
-        name: "Book",
+        name: "Book about Edibal Animals of the Desert",
         //image: "/items/outerspace/oxygen_tanks.png",
         image: "/items/desert/book.png",
 
@@ -45,14 +45,14 @@ const desert = {
       },
       {
         id: "map",
-        name: "Map",
+        name: "Air Map",
         image: "/items/desert/map.png",
         emoji: "♨️",
       },
       {
-        id: "matches",
-        name: "Matches",
-        image: "/items/desert/matches.png",
+        id: "water",
+        name: "Water",
+        image: "/items/desert/water.png",
         emoji: "🛟",
       },
       {
@@ -86,14 +86,14 @@ const desert = {
         emoji: "💧",
       },
       {
-        id: "sunglass",
-        name: "Sunglass",
-        image: "/items/desert/sunglass.png",
+        id: "sunglasses",
+        name: "Sunglasses",
+        image: "/items/desert/sunglasses.png",
         emoji: "🚨",
       },
       {
         id: "vodka",
-        name: "Vodka Aid Kit",
+        name: "Vodka",
         image: "/items/desert/vodka.png",
         emoji: "🩹",
       },
